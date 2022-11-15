@@ -18,10 +18,22 @@ def main():
        print('Cannot have epicenter larger than the number of cities')
        exit
 
+   print('Introduced skew (y/[n] : ', end = "")
+   skew = input()
+   if skew == "" or skew == 'n':
+      skip_skew = True
+   else:
+      skip_skew = False
+
+
    myboard = Board(cities, epi)
-   #myboard.move(0)
-   #myboard.move(1)
-   #myboard.move(1)
+
+   if skip_skew:
+       myboard.move(0)
+       myboard.move(1)
+       myboard.move(1)
+       myboard.move(1)
+       myboard.move(1)
 
    solver = Solver(myboard)
    start = time.time()
